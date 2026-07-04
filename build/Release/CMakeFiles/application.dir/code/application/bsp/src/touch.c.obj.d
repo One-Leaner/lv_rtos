@@ -1,0 +1,86 @@
+CMakeFiles/application.dir/code/application/bsp/src/touch.c.obj: \
+ F:\stm32cubemx_project\lv_rtos\code\application\bsp\src\touch.c \
+ F:\stm32cubemx_project\lv_rtos\code\application\bsp\inc/touch.h \
+ F:/stm32cubemx_project/lv_rtos/Core/Inc/gpio.h \
+ F:/stm32cubemx_project/lv_rtos/Core/Inc/main.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
+ F:/stm32cubemx_project/lv_rtos/Core/Inc/stm32f4xx_hal_conf.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/CMSIS/Include/core_cm4.h \
+ F:/Compilation_toolchain/13.3\ rel1/lib/gcc/arm-none-eabi/13.3.1/include/stdint.h \
+ F:/Compilation_toolchain/13.3\ rel1/arm-none-eabi/include/stdint.h \
+ F:/Compilation_toolchain/13.3\ rel1/arm-none-eabi/include/machine/_default_types.h \
+ F:/Compilation_toolchain/13.3\ rel1/arm-none-eabi/include/sys/features.h \
+ F:/Compilation_toolchain/13.3\ rel1/arm-none-eabi/include/_newlib_version.h \
+ F:/Compilation_toolchain/13.3\ rel1/arm-none-eabi/include/sys/_intsup.h \
+ F:/Compilation_toolchain/13.3\ rel1/arm-none-eabi/include/sys/_stdint.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/CMSIS/Include/cmsis_version.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/CMSIS/Include/cmsis_compiler.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/CMSIS/Include/cmsis_gcc.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/CMSIS/Include/mpu_armv7.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h \
+ F:/Compilation_toolchain/13.3\ rel1/lib/gcc/arm-none-eabi/13.3.1/include/stddef.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sram.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_fsmc.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sd.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_sdmmc.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h \
+ F:/stm32cubemx_project/lv_rtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h \
+ F:\stm32cubemx_project\lv_rtos\code\application\bsp\inc/matrix.h \
+ F:\stm32cubemx_project\lv_rtos\code\application\bsp\inc/debug.h \
+ F:/Compilation_toolchain/13.3\ rel1/arm-none-eabi/include/stdio.h \
+ F:/Compilation_toolchain/13.3\ rel1/arm-none-eabi/include/_ansi.h \
+ F:/Compilation_toolchain/13.3\ rel1/arm-none-eabi/include/newlib.h \
+ F:/Compilation_toolchain/13.3\ rel1/arm-none-eabi/include/sys/config.h \
+ F:/Compilation_toolchain/13.3\ rel1/arm-none-eabi/include/machine/ieeefp.h \
+ F:/Compilation_toolchain/13.3\ rel1/arm-none-eabi/include/sys/cdefs.h \
+ F:/Compilation_toolchain/13.3\ rel1/lib/gcc/arm-none-eabi/13.3.1/include/stdarg.h \
+ F:/Compilation_toolchain/13.3\ rel1/arm-none-eabi/include/sys/reent.h \
+ F:/Compilation_toolchain/13.3\ rel1/arm-none-eabi/include/_ansi.h \
+ F:/Compilation_toolchain/13.3\ rel1/arm-none-eabi/include/sys/_types.h \
+ F:/Compilation_toolchain/13.3\ rel1/arm-none-eabi/include/machine/_types.h \
+ F:/Compilation_toolchain/13.3\ rel1/arm-none-eabi/include/sys/lock.h \
+ F:/Compilation_toolchain/13.3\ rel1/arm-none-eabi/include/sys/stdio.h \
+ F:/stm32cubemx_project/lv_rtos/Core/Inc/spi.h \
+ F:\stm32cubemx_project\lv_rtos\code\application\bsp\inc/lcd.h \
+ F:\stm32cubemx_project\lv_rtos\code\application\bsp\inc/w25qxx.h \
+ F:/stm32cubemx_project/lv_rtos/Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
+ F:/stm32cubemx_project/lv_rtos/Core/Inc/FreeRTOSConfig.h \
+ F:/stm32cubemx_project/lv_rtos/Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
+ F:/stm32cubemx_project/lv_rtos/Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
+ F:/stm32cubemx_project/lv_rtos/Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
+ F:/stm32cubemx_project/lv_rtos/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
+ F:/stm32cubemx_project/lv_rtos/Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
+ F:/stm32cubemx_project/lv_rtos/Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ F:/stm32cubemx_project/lv_rtos/Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
+ F:/stm32cubemx_project/lv_rtos/Middlewares/Third_Party/FatFs/src/ff.h \
+ F:/stm32cubemx_project/lv_rtos/Middlewares/Third_Party/FatFs/src/integer.h \
+ F:/stm32cubemx_project/lv_rtos/FATFS/Target/ffconf.h \
+ F:/stm32cubemx_project/lv_rtos/Core/Inc/main.h \
+ F:/stm32cubemx_project/lv_rtos/FATFS/Target/bsp_driver_sd.h \
+ F:/stm32cubemx_project/lv_rtos/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
+ F:/stm32cubemx_project/lv_rtos/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
+ F:/Compilation_toolchain/13.3\ rel1/arm-none-eabi/include/stdlib.h \
+ F:/Compilation_toolchain/13.3\ rel1/arm-none-eabi/include/machine/stdlib.h \
+ F:/Compilation_toolchain/13.3\ rel1/arm-none-eabi/include/alloca.h

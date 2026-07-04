@@ -1,0 +1,386 @@
+{
+	"inputs" : 
+	[
+		{
+			"path" : "CMakeLists.txt"
+		},
+		{
+			"path" : "cmake/gcc-arm-none-eabi.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/Release/CMakeFiles/4.2.3/CMakeSystem.cmake"
+		},
+		{
+			"path" : "cmake/gcc-arm-none-eabi.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/CMakeSystemSpecificInitialize.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/Release/CMakeFiles/4.2.3/CMakeCCompiler.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/Release/CMakeFiles/4.2.3/CMakeCXXCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/CMakeSystemSpecificInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/CMakeGenericSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/CMakeInitializeConfigs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/Platform/Generic.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/CMakeCInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/Compiler/GNU-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/Compiler/GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/Platform/Generic.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/Internal/CMakeCLinkerInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/Internal/CMakeCommonLinkerInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/CMakeCXXInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/Compiler/GNU-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/Compiler/GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/Platform/Generic.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/Internal/CMakeCXXLinkerInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/Internal/CMakeCommonLinkerInformation.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/Release/CMakeFiles/4.2.3/CMakeASMCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/CMakeASMInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/Compiler/GNU-ASM.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/Compiler/GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/Internal/CMakeASMLinkerInformation.cmake"
+		},
+		{
+			"path" : "cmake/stm32cubemx/CMakeLists.txt"
+		},
+		{
+			"path" : "code/application/lib/lvgl/CMakeLists.txt"
+		},
+		{
+			"path" : "code/application/lib/lvgl/env_support/cmake/os_desktop.cmake"
+		},
+		{
+			"path" : "code/application/lib/lvgl/env_support/cmake/version.cmake"
+		},
+		{
+			"path" : "code/application/lib/lvgl/lvgl.pc.in"
+		},
+		{
+			"path" : "code/application/lib/lvgl/lv_version.h.in"
+		},
+		{
+			"path" : "code/application/lib/freetype-2.14.3/CMakeLists.txt"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/CheckIncludeFile.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/CMakeDependentOption.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindPkgConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/CMakePushCheckState.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/CheckSymbolExists.cmake"
+		},
+		{
+			"path" : "code/application/lib/freetype-2.14.3/builds/cmake/FindHarfBuzz.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindPkgConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindPNG.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindZLIB.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/SelectLibraryConfigurations.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindZLIB.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/SelectLibraryConfigurations.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindBZip2.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/SelectLibraryConfigurations.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"path" : "code/application/lib/freetype-2.14.3/builds/cmake/FindBrotliDec.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindPkgConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/GNUInstallDirs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/CMakePackageConfigHelpers.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/WriteBasicConfigVersionFile.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/BasicConfigVersion-SameMajorVersion.cmake.in"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/CPack.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Modules/CPackComponent.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Templates/CPackConfig.cmake.in"
+		},
+		{
+			"isExternal" : true,
+			"path" : "E:/vscode/Cmake/cmake-4.2.3-windows-x86_64/cmake-4.2.3-windows-x86_64/share/cmake-4.2/Templates/CPackConfig.cmake.in"
+		}
+	],
+	"kind" : "cmakeFiles",
+	"paths" : 
+	{
+		"build" : "F:/stm32cubemx_project/lv_rtos/build/Release",
+		"source" : "F:/stm32cubemx_project/lv_rtos"
+	},
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 1
+	}
+}

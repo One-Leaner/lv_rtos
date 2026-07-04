@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"F:/stm32cubemx_project/lv_rtos/build/Release/cmake_install.cmake",
+		"F:/stm32cubemx_project/lv_rtos/build/Release/cmake/stm32cubemx/cmake_install.cmake",
+		"F:/stm32cubemx_project/lv_rtos/build/Release/code/application/lib/lvgl/cmake_install.cmake",
+		"F:/stm32cubemx_project/lv_rtos/build/Release/code/application/lib/freetype-2.14.3/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

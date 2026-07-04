@@ -1,0 +1,62 @@
+{
+	"abstract" : true,
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"set_target_properties"
+		],
+		"files" : 
+		[
+			"code/application/lib/freetype-2.14.3/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 565,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 566,
+				"parent" : 0
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	},
+	"id" : "freetype-interface::@bbc0e6519dfd82b72521",
+	"interfaceCompileDependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "freetype::@bbc0e6519dfd82b72521"
+		}
+	],
+	"interfaceLinkLibraries" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "freetype::@bbc0e6519dfd82b72521"
+		}
+	],
+	"name" : "freetype-interface",
+	"paths" : 
+	{
+		"build" : "code/application/lib/freetype-2.14.3",
+		"source" : "code/application/lib/freetype-2.14.3"
+	},
+	"sources" : [],
+	"type" : "INTERFACE_LIBRARY"
+}

@@ -1,0 +1,46 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceFolder}/build/Debug/bootloader.elf", // 你的ELF文件路径（保持不变）
+            "name": "DEBUG_BOOTLOADER",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            // 补充1：OpenOCD核心配置文件（ST-Link接口+STM32F4系列）
+            "configFiles": [
+                "interface/stlink-v2.cfg",
+                "target/stm32f4x.cfg"
+            ],
+            // 补充2：OpenOCD脚本搜索目录（指向你OpenOCD的scripts文件夹）
+            // "searchDir": [
+            //     "E:/vscode/OpenOCD/openocd-20251211/OpenOCD-20251211-0.12.0/share/openocd/scripts" // 替换为你的OpenOCD scripts路径
+            // ]
+            // 补充3：指定MCU型号(非必要参数)
+            "device": "STM32F407xx",
+            // 补充4：gcc-arm工具链路径（替换为你的实际路径）
+            // "armToolchainPath": "F:/Compilation_toolchain/arm-gnu-toolchain-15.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin",
+            // // 补充5：OpenOCD路径（若已配环境变量可省略）
+            // "serverpath": "E:/vscode/OpenOCD/openocd-20251211/OpenOCD-20251211-0.12.0/bin/openocd.exe",
+            // 程序入口
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "none"
+        },
+        {
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceFolder}/build/Debug/application.elf", // 你的ELF文件路径（保持不变）
+            "name": "DEBUG_APPLICATION",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "interface/stlink-v2.cfg",
+                "target/stm32f4x.cfg"
+            ],
+            "device": "STM32F407xx",
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "none"
+        }
+    ]
+}

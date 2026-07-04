@@ -1,0 +1,220 @@
+{
+	"configurations" : 
+	[
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 3,
+					"id" : "freetype-interface::@bbc0e6519dfd82b72521",
+					"jsonFile" : "target-freetype-interface-Release-93539521ac1466d181c0.json",
+					"name" : "freetype-interface",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "stm32cubemx::@768a070a0fe75716b479",
+					"jsonFile" : "target-stm32cubemx-Release-7c406e929b94e08d133f.json",
+					"name" : "stm32cubemx",
+					"projectIndex" : 1
+				}
+			],
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Release-f6f22219c74102c3da70.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"abstractTargetIndexes" : 
+					[
+						1
+					],
+					"build" : "cmake/stm32cubemx",
+					"jsonFile" : "directory-cmake.stm32cubemx-Release-8f353d194551f741f997.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "cmake/stm32cubemx"
+				},
+				{
+					"build" : "code/application/lib/lvgl",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-code.application.lib.lvgl-Release-10e58c5299159acec610.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12.4"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "code/application/lib/lvgl",
+					"targetIndexes" : 
+					[
+						3,
+						4,
+						5,
+						6
+					]
+				},
+				{
+					"abstractTargetIndexes" : 
+					[
+						0
+					],
+					"build" : "code/application/lib/freetype-2.14.3",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-code.application.lib.freetype-2.14.3-Release-029a9445114b44a77036.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "code/application/lib/freetype-2.14.3",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						2
+					],
+					"name" : "lv_rtos",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						3,
+						4,
+						5,
+						6
+					]
+				},
+				{
+					"abstractTargetIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "stm32cubemx",
+					"parentIndex" : 0
+				},
+				{
+					"abstractTargetIndexes" : 
+					[
+						0
+					],
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "freetype",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "application::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-application-Release-f5373f99dcbbbc20f9e9.json",
+					"name" : "application",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "bootloader::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-bootloader-Release-0498484b1d7aea86c4a6.json",
+					"name" : "bootloader",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "freetype::@bbc0e6519dfd82b72521",
+					"jsonFile" : "target-freetype-Release-1d4635d8420f8b29357e.json",
+					"name" : "freetype",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "lvgl::@057ec6a9d135a1a2d7da",
+					"jsonFile" : "target-lvgl-Release-65e5cc455d57ad352779.json",
+					"name" : "lvgl",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "lvgl_demos::@057ec6a9d135a1a2d7da",
+					"jsonFile" : "target-lvgl_demos-Release-27afdc0aed73c60b7599.json",
+					"name" : "lvgl_demos",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "lvgl_examples::@057ec6a9d135a1a2d7da",
+					"jsonFile" : "target-lvgl_examples-Release-41a6bdf8be64a2cbdc71.json",
+					"name" : "lvgl_examples",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "lvgl_thorvg::@057ec6a9d135a1a2d7da",
+					"jsonFile" : "target-lvgl_thorvg-Release-53626162019477aed8e4.json",
+					"name" : "lvgl_thorvg",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "F:/stm32cubemx_project/lv_rtos/build/Release",
+		"source" : "F:/stm32cubemx_project/lv_rtos"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	}
+}

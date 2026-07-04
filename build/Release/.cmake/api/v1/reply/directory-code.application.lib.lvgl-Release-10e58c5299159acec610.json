@@ -1,0 +1,246 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install",
+			"include"
+		],
+		"files" : 
+		[
+			"code/application/lib/lvgl/env_support/cmake/os_desktop.cmake",
+			"code/application/lib/lvgl/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 26,
+				"parent" : 0
+			},
+			{
+				"file" : 0,
+				"parent" : 1
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 313,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 338,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 352,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 363,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 379,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 390,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 405,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 416,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 431,
+				"parent" : 2
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 3,
+			"component" : "Unspecified",
+			"destination" : "include/lvgl",
+			"paths" : 
+			[
+				"code/application/lib/lvgl/src"
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Unspecified",
+			"destination" : "include/lvgl",
+			"paths" : 
+			[
+				"code/application/lib/lv_conf.h",
+				"code/application/lib/lvgl/lv_version.h",
+				"code/application/lib/lvgl/lvgl.h"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 5,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"code/application/lib/lvgl/lib/liblvgl.a"
+			],
+			"targetId" : "lvgl::@057ec6a9d135a1a2d7da",
+			"targetIndex" : 3,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 5,
+			"component" : "Unspecified",
+			"destination" : "include/lvgl",
+			"paths" : 
+			[
+				"code/application/lib/lv_conf.h",
+				"code/application/lib/lvgl/lv_version.h",
+				"code/application/lib/lvgl/lvgl.h"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 6,
+			"component" : "Unspecified",
+			"destination" : "share/pkgconfig",
+			"paths" : 
+			[
+				"build/Release/code/application/lib/lvgl/lvgl.pc"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 7,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"code/application/lib/lvgl/lib/liblvgl_thorvg.a"
+			],
+			"targetId" : "lvgl_thorvg::@057ec6a9d135a1a2d7da",
+			"targetIndex" : 6,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 7,
+			"component" : "Unspecified",
+			"destination" : "include/lvgl",
+			"paths" : 
+			[
+				"code/application/lib/lv_conf.h",
+				"code/application/lib/lvgl/lv_version.h",
+				"code/application/lib/lvgl/lvgl.h"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 8,
+			"component" : "Unspecified",
+			"destination" : "include/lvgl",
+			"paths" : 
+			[
+				"code/application/lib/lvgl/demos"
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 9,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"code/application/lib/lvgl/lib/liblvgl_demos.a"
+			],
+			"targetId" : "lvgl_demos::@057ec6a9d135a1a2d7da",
+			"targetIndex" : 4,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 9,
+			"component" : "Unspecified",
+			"destination" : "include/lvgl",
+			"paths" : 
+			[
+				"code/application/lib/lv_conf.h",
+				"code/application/lib/lvgl/lv_version.h",
+				"code/application/lib/lvgl/lvgl.h"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 10,
+			"component" : "Unspecified",
+			"destination" : "include/lvgl",
+			"paths" : 
+			[
+				"code/application/lib/lvgl/examples"
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 11,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"code/application/lib/lvgl/lib/liblvgl_examples.a"
+			],
+			"targetId" : "lvgl_examples::@057ec6a9d135a1a2d7da",
+			"targetIndex" : 5,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 11,
+			"component" : "Unspecified",
+			"destination" : "include/lvgl",
+			"paths" : 
+			[
+				"code/application/lib/lv_conf.h",
+				"code/application/lib/lvgl/lv_version.h",
+				"code/application/lib/lvgl/lvgl.h"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "code/application/lib/lvgl",
+		"source" : "code/application/lib/lvgl"
+	}
+}

@@ -1,0 +1,43 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "烧录application",
+			"type": "shell",
+			"command": "openocd",
+			"args": [
+				"-f",
+				"interface/stlink-v2.cfg",
+				"-f",
+				"target/stm32f4x.cfg",
+				"-c",
+				// "program ./build/Debug/application.elf reset exit"
+				"program ./build/Release/application.elf reset exit"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "烧录bootloader",
+			"type": "shell",
+			"command": "openocd",
+			"args": [
+				"-f",
+				"interface/stlink-v2.cfg",
+				"-f",
+				"target/stm32f4x.cfg",
+				"-c",
+				// "program ./build/Debug/bootloader.elf reset exit"
+				"program ./build/Release/bootloader.elf reset exit"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			},
+			"problemMatcher": []
+		}
+	]
+}
