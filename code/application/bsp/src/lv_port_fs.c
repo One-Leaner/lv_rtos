@@ -46,10 +46,8 @@ void lv_port_fs_init(void)
 static void *fs_open(lv_fs_drv_t *drv, const char *path, lv_fs_mode_t mode)
 {
     LV_UNUSED(drv);
-    printf("fopen\n");
-    // lv_fs_res_t res = LV_FS_RES_NOT_IMP;
+
     BYTE fatfs_mode = 0;
-    /*把LVGL的打开文件的模式和FatFs一一对应好*/
     if (mode == LV_FS_MODE_WR)
         fatfs_mode = FA_WRITE | FA_OPEN_ALWAYS;
     else if (mode == LV_FS_MODE_RD)
@@ -58,33 +56,28 @@ static void *fs_open(lv_fs_drv_t *drv, const char *path, lv_fs_mode_t mode)
         fatfs_mode = FA_READ | FA_WRITE | FA_OPEN_ALWAYS;
     else
         return NULL;
-    /* LVGL 传进来的path已经没有盘符，比如 "test.txt" ,我们需要把盘符补充上去，然后才能给f_open使用*/
+
     char *full_path = lv_malloc(256);
     if (full_path == NULL)
         return NULL;
 
-    lv_snprintf(full_path, 256, "0:%s", path); // 注意 path 已经是 "/xxx"
-    printf("fs_open full_path=%s\n", full_path);
+    lv_snprintf(full_path, 256, "0:%s", path);
 
-    FIL *f = lv_malloc(sizeof(FIL)); // 为每个文件分配空间
+    FIL *f = lv_malloc(sizeof(FIL));
     if (f == NULL)
     {
         lv_free(full_path);
-        printf("lv_malloc failed ! (f == NULL)\r\n");
         return NULL;
     }
+
     FRESULT fr = f_open(f, full_path, fatfs_mode);
+    lv_free(full_path);
+
     if (fr == FR_OK)
-    {
-        printf("fs_open full_path=%s  OK !\n", full_path);
         return f;
-    }
-    else
-    {
-        printf("f_open failed: %d, full_path=%s\n", fr, full_path);
-        lv_free(f);
-        return NULL;
-    }
+
+    lv_free(f);
+    return NULL;
 }
 
 /**
@@ -96,16 +89,11 @@ static void *fs_open(lv_fs_drv_t *drv, const char *path, lv_fs_mode_t mode)
 static lv_fs_res_t fs_close(lv_fs_drv_t *drv, void *file_p)
 {
     LV_UNUSED(drv);
-    if (FR_OK == f_close((FIL *)file_p))
-    {
-        lv_free(file_p);
-        return LV_FS_RES_OK;
-    }
-    else
-    {
-        lv_free(file_p);
-        return LV_FS_RES_UNKNOWN;
-    }
+
+    FRESULT res = f_close((FIL *)file_p);
+    lv_free(file_p);
+
+    return (res == FR_OK) ? LV_FS_RES_OK : LV_FS_RES_UNKNOWN;
 }
 
 /**
@@ -119,13 +107,9 @@ static lv_fs_res_t fs_close(lv_fs_drv_t *drv, void *file_p)
  */
 static lv_fs_res_t fs_read(lv_fs_drv_t *drv, void *file_p, void *buf, uint32_t btr, uint32_t *br)
 {
-    /*Add your code here*/
     LV_UNUSED(drv);
     FRESULT res = f_read(file_p, buf, btr, (UINT *)br);
-    if (res == FR_OK)
-        return LV_FS_RES_OK;
-    else
-        return LV_FS_RES_UNKNOWN;
+    return (res == FR_OK) ? LV_FS_RES_OK : LV_FS_RES_UNKNOWN;
 }
 
 /**
@@ -139,13 +123,9 @@ static lv_fs_res_t fs_read(lv_fs_drv_t *drv, void *file_p, void *buf, uint32_t b
  */
 static lv_fs_res_t fs_write(lv_fs_drv_t *drv, void *file_p, const void *buf, uint32_t btw, uint32_t *bw)
 {
-    /*Add your code here*/
     LV_UNUSED(drv);
     FRESULT res = f_write(file_p, buf, btw, (UINT *)bw);
-    if (res == FR_OK)
-        return LV_FS_RES_OK;
-    else
-        return LV_FS_RES_UNKNOWN;
+    return (res == FR_OK) ? LV_FS_RES_OK : LV_FS_RES_UNKNOWN;
 }
 
 /**
@@ -205,24 +185,23 @@ static void *fs_dir_open(lv_fs_drv_t *drv, const char *path)
     if (d == NULL)
         return NULL;
 
-    /* SD卡挂载在 "0:"，与 fs_open 保持一致 */
     char *real_path = lv_malloc(256);
     if (real_path == NULL)
     {
-        lv_free(d); /* 修复内存泄漏 */
+        lv_free(d);
         return NULL;
     }
 
     lv_snprintf(real_path, 256, "0:%s", path);
     FRESULT res = f_opendir(d, real_path);
-    lv_free(real_path); /* 释放临时路径缓冲区 */
+    lv_free(real_path);
 
     if (res != FR_OK)
     {
-        printf("fs_dir_open failed: %d, path=%s\n", res, path);
         lv_free(d);
         d = NULL;
     }
+
     return d;
 }
 
@@ -239,30 +218,23 @@ static lv_fs_res_t fs_dir_read(lv_fs_drv_t *drv, void *rddir_p, char *fn, uint32
 {
     LV_UNUSED(drv);
 
-    if (fn_len == 0) /* 增加参数检查 */
+    if (fn_len == 0)
         return LV_FS_RES_INV_PARAM;
 
-    FRESULT res;
     FILINFO fno;
-    fn[0] = '\0';
 
     do
     {
-        res = f_readdir(rddir_p, &fno);
-        if (res != FR_OK)
+        if (f_readdir(rddir_p, &fno) != FR_OK)
             return LV_FS_RES_UNKNOWN;
 
-        if (fno.fname[0] == 0) /* 目录结束 */
+        if (fno.fname[0] == 0)
             break;
 
         if (fno.fattrib & AM_DIR)
-        {
-            lv_snprintf(fn, fn_len, "/%s", fno.fname); /* 使用 lv_snprintf 防止缓冲区溢出 */
-        }
+            lv_snprintf(fn, fn_len, "/%s", fno.fname);
         else
-        {
-            lv_strlcpy(fn, fno.fname, fn_len); /* 使用 lv_strlcpy 防止缓冲区溢出 */
-        }
+            lv_strlcpy(fn, fno.fname, fn_len);
     } while (strcmp(fn, "/.") == 0 || strcmp(fn, "/..") == 0);
 
     return LV_FS_RES_OK;
@@ -277,14 +249,9 @@ static lv_fs_res_t fs_dir_read(lv_fs_drv_t *drv, void *rddir_p, char *fn, uint32
 static lv_fs_res_t fs_dir_close(lv_fs_drv_t *drv, void *rddir_p)
 {
     LV_UNUSED(drv);
-    if (FR_OK == f_closedir(rddir_p))
-    {
-        lv_free(rddir_p);
-        return LV_FS_RES_OK;
-    }
-    else
-    {
-        lv_free(rddir_p);
-        return LV_FS_RES_UNKNOWN;
-    }
+
+    FRESULT res = f_closedir(rddir_p);
+    lv_free(rddir_p);
+
+    return (res == FR_OK) ? LV_FS_RES_OK : LV_FS_RES_UNKNOWN;
 }

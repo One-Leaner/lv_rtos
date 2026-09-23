@@ -11,7 +11,7 @@
 
 
 set(CPACK_BUILD_SOURCE_DIRS "F:/stm32cubemx_project/lv_rtos;F:/stm32cubemx_project/lv_rtos/build/Release")
-set(CPACK_CMAKE_GENERATOR "MinGW Makefiles")
+set(CPACK_CMAKE_GENERATOR "Ninja")
 set(CPACK_COMPONENTS_ALL "Unspecified;headers;pkgconfig")
 set(CPACK_COMPONENT_HEADERS_DEPENDS "libraries")
 set(CPACK_COMPONENT_HEADERS_DESCRIPTION "C/C++ header files for use with FreeType")

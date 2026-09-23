@@ -1,6 +1,8 @@
 #ifndef __FS_H__
 #define __FS_H__
 
+#include <stdint.h>
+
 typedef enum
 {
     FS_NODE_FILE = 0,
@@ -22,6 +24,6 @@ FS_NODE_t **fs_node_get_children(FS_NODE_t *node);
 FS_NODE_TYPE_t fs_node_get_type(FS_NODE_t *node);
 uint32_t fs_node_get_child_count(FS_NODE_t *node);
 
-void fs_mount();
+void fs_mount(void);
 
 #endif

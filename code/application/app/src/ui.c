@@ -8,10 +8,8 @@
 #include "heap.h"
 #include "lv_port_fs.h"
 #include "encoder.h"
-#include "my_nes_port.h"
 
 #include "FreeRTOS.h"
-#include "semphr.h"
 #include <string.h>
 
 // LV_FONT_DECLARE(chinese_16_2) // 导入字体
@@ -30,27 +28,19 @@
 struct UI_CTRL
 {
     volatile uint8_t flush_flag;
-    volatile uint8_t usb_flag;
     volatile uint8_t iap_flag;
     volatile uint8_t ota_flag;
 
     void (*disp_init)(UI_CTRL_t *);
     void (*indev_init)(UI_CTRL_t *);
     void (*draw)(UI_CTRL_t *);
-    void (*nes_draw)(UI_CTRL_t *);
 };
 
-static lv_font_t *chinese_16_2 = NULL;    // 字体
-static lv_font_t *chinese_12_2 = NULL;    // 字体
-static lv_obj_t *g_menu_scr = NULL;       // 菜单界面
-static lv_obj_t *g_usb_scr = NULL;        // USB界面
-static lv_obj_t *g_nes_scr = NULL;        // NES界面
-static lv_obj_t *g_nes_parent_scr = NULL; // 启动NES时的父界面（游戏目录）
+static lv_font_t *chinese_16_2 = NULL; // 字体
+static lv_font_t *chinese_12_2 = NULL; // 字体
+static lv_obj_t *g_menu_scr = NULL;    // 菜单界面
 static uint8_t g_volume_flag = 0;
 static uint32_t g_volume_delay = 0;
-lv_obj_t *g_nes_canvas = NULL;
-// nes_t *g_nes = NULL;
-// static uint8_t crr_pad1 = 0; // 当前按键1状态
 
 static void ui_file_list_create(FS_TREE_t *tree, lv_obj_t *parent_file_list_scr, lv_obj_t *parent_file_list, FS_NODE_t *parent);
 
@@ -214,16 +204,7 @@ static void ui_callback(lv_event_t *e)
             lv_dir_t dir = lv_indev_get_gesture_dir(lv_indev_get_act());
             if (dir == LV_DIR_LEFT)
             {
-                lv_obj_t *target_scr = user->next_scr;
-
-                if (nes.api->get_state(nes.ctrl) == NES_STATE_RUNNING)
-                {
-                    nes.api->stop(nes.ctrl);
-                    lv_obj_clean(g_nes_canvas);
-                    target_scr = g_nes_parent_scr;
-                }
-
-                lv_screen_load_anim(target_scr, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, false);
+                lv_screen_load_anim(user->next_scr, LV_SCR_LOAD_ANIM_MOVE_LEFT, 300, 0, false);
             }
 
             if (tree != NULL && g_menu_scr == user->next_scr) // 返回主界面时销毁树
@@ -279,14 +260,6 @@ static void ui_callback(lv_event_t *e)
         }
         break;
 
-    case UI_ID_USB:
-        if (code == LV_EVENT_SHORT_CLICKED)
-        {
-            lv_screen_load_anim(user->next_scr, LV_SCR_LOAD_ANIM_FADE_IN, 0, 0, false);
-            ui.api->set_usb_flag(ui.ctrl, 1);
-        }
-        break;
-
     case UI_ID_IAP:
         if (code == LV_EVENT_SHORT_CLICKED)
         {
@@ -300,18 +273,6 @@ static void ui_callback(lv_event_t *e)
         {
             lv_screen_load_anim(user->next_scr, LV_SCR_LOAD_ANIM_FADE_IN, 0, 0, false);
             ui.api->set_ota_flag(ui.ctrl, 1);
-        }
-        break;
-
-    case UI_ID_NES_RUN:
-        if (code == LV_EVENT_SHORT_CLICKED)
-        {
-            g_nes_parent_scr = lv_scr_act(); // 记录启动NES前的当前界面（游戏目录）
-            lv_screen_load_anim(user->next_scr, LV_SCR_LOAD_ANIM_FADE_IN, 0, 0, false);
-            nes.api->start(nes.ctrl, user->other_data);
-            // nes_load_file(g_nes, user->other_data);
-            // 释放信号量
-            // xSemaphoreGive(g_nes_sem);
         }
         break;
 
@@ -332,17 +293,8 @@ static void ui_file_list_create(FS_TREE_t *tree, lv_obj_t *parent_file_list_scr,
         if (type == FS_NODE_FILE)
         {
             char *name = fs_node_get_name(children[i]);
-            uint16_t name_len = strlen(name);
-            lv_obj_t *btn = lv_list_add_button(parent_file_list, LV_SYMBOL_FILE, name);
-            //.nes结尾的文件运行nes游戏
-            if (strncmp(name + name_len - 4, ".nes", 4) == 0 ||
-                strncmp(name + name_len - 4, ".NES", 4) == 0)
-            {
-                user->id = UI_ID_NES_RUN;
-                user->next_scr = g_nes_scr;
-                user->other_data = fs_node_get_full_path(children[i]);
-                lv_obj_add_event_cb(btn, ui_callback, LV_EVENT_SHORT_CLICKED, user);
-            }
+            lv_list_add_button(parent_file_list, LV_SYMBOL_FILE, name);
+            heap.api->free(heap.ctrl, user);
         }
         else
         {
@@ -496,19 +448,6 @@ static void ui_draw(UI_CTRL_t *ctrl)
     // lv_obj_set_style_text_align(file_label, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_align(file_label, LV_ALIGN_CENTER);
     lv_obj_set_style_text_color(file_label, lv_color_hex(0xffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
-    // USB图标
-    lv_obj_t *usb_btn = lv_btn_create(g_menu_scr);
-    lv_obj_set_style_radius(usb_btn, 20, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_align(usb_btn, LV_ALIGN_BOTTOM_RIGHT, -20, -40);
-    lv_obj_set_size(usb_btn, 50, 50);
-    lv_obj_set_style_bg_grad_color(usb_btn, lv_color_hex(0x5a46dc), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_grad_dir(usb_btn, LV_GRAD_DIR_VER, LV_PART_MAIN | LV_STATE_DEFAULT);
-    // USB图标标签
-    lv_obj_t *usb_label = lv_label_create(usb_btn);
-    lv_obj_set_style_text_font(usb_label, chinese_16_2, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_label_set_text(usb_label, "USB");
-    lv_obj_set_align(usb_label, LV_ALIGN_CENTER);
-    lv_obj_set_style_text_color(usb_label, lv_color_hex(0xffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
     // IAP图标
     lv_obj_t *iap_btn = lv_btn_create(g_menu_scr);
     lv_obj_set_style_radius(iap_btn, 20, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -597,19 +536,6 @@ static void ui_draw(UI_CTRL_t *ctrl)
     lv_obj_set_size(file_list, 240, 320);                // 列表大小
                                                          ////////////////////////// 文件列表页面END//////////////////////////
 
-    ////////////////////////// USB页面BEGIN//////////////////////////
-    // USB页面
-    g_usb_scr = lv_obj_create(NULL);
-    lv_obj_set_style_bg_grad_dir(g_usb_scr, LV_GRAD_DIR_VER, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_grad_color(g_usb_scr, lv_color_hex(0x5a46dc), LV_PART_MAIN | LV_STATE_DEFAULT);
-    // 标签
-    lv_obj_t *usb_scr_label = lv_label_create(g_usb_scr);
-    lv_obj_set_style_text_font(usb_scr_label, chinese_16_2, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_label_set_text(usb_scr_label, "拔出USB退出该界面");
-    lv_obj_align_to(usb_scr_label, g_usb_scr, LV_ALIGN_CENTER, 0, 0);
-    lv_obj_set_style_text_color(usb_scr_label, lv_color_hex(0xffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
-    ////////////////////////// USB页面END//////////////////////////
-
     ////////////////////////// 更新页面BEGIN//////////////////////////
     lv_obj_t *update_scr = lv_obj_create(NULL);
     lv_obj_set_style_bg_grad_dir(update_scr, LV_GRAD_DIR_VER, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -661,10 +587,6 @@ static void ui_draw(UI_CTRL_t *ctrl)
     // 点击音效设置事件
     USER_DATA_CREATE_STATIC(click_sound_btn_user, UI_ID_SOUND);
     lv_obj_add_event_cb(click_sound_btn, ui_callback, LV_EVENT_SHORT_CLICKED, &click_sound_btn_user);
-    // 点击USB图标事件
-    USER_DATA_CREATE_STATIC(usb_btn_user, UI_ID_USB);
-    usb_btn_user.next_scr = g_usb_scr;
-    lv_obj_add_event_cb(usb_btn, ui_callback, LV_EVENT_SHORT_CLICKED, &usb_btn_user);
     // 点击IAP图标事件
     USER_DATA_CREATE_STATIC(iap_btn_user, UI_ID_IAP);
     iap_btn_user.next_scr = update_scr;
@@ -676,38 +598,11 @@ static void ui_draw(UI_CTRL_t *ctrl)
     ////////////////////////// 添加事件END//////////////////////////
 }
 
-static void ui_nes_draw(UI_CTRL_t *ctrl)
-{
-    LV_UNUSED(ctrl);
-
-    // 初始化信号量
-    // g_nes_sem = xSemaphoreCreateBinary();
-    // 初始化NES
-    // g_nes = nes_init();
-    // if (!g_nes)
-    // {
-    //     printf("\nnes_init failed\n");
-    //     return;
-    // }
-
-    g_nes_scr = lv_obj_create(NULL);
-    g_nes_canvas = lv_canvas_create(g_nes_scr);
-    lv_canvas_set_buffer(g_nes_canvas, nes.api->get_workframe(nes.ctrl), nes.api->get_width(nes.ctrl), nes.api->get_height(nes.ctrl), LV_COLOR_FORMAT_RGB565);
-    lv_obj_set_size(g_nes_canvas, nes.api->get_width(nes.ctrl), nes.api->get_height(nes.ctrl));
-    lv_obj_align(g_nes_canvas, LV_ALIGN_CENTER, 0, 0);
-    // 禁用滚动条
-    lv_obj_set_scroll_dir(g_nes_scr, LV_DIR_NONE);
-    // 左滑退出NES界面
-    USER_DATA_CREATE_STATIC(nes_scr_gesture_user, UI_ID_RETURN);
-    lv_obj_add_event_cb(g_nes_scr, ui_callback, LV_EVENT_GESTURE, &nes_scr_gesture_user);
-}
-
 static void ui_init(UI_CTRL_t *ctrl)
 {
     ctrl->disp_init(ctrl);
     ctrl->indev_init(ctrl);
     ctrl->draw(ctrl);
-    ctrl->nes_draw(ctrl);
 }
 
 static void ui_set_flush(UI_CTRL_t *ctrl, uint8_t flush_flag)
@@ -718,16 +613,6 @@ static void ui_set_flush(UI_CTRL_t *ctrl, uint8_t flush_flag)
 static uint8_t ui_get_flush(UI_CTRL_t *ctrl)
 {
     return ctrl->flush_flag;
-}
-
-static void ui_set_usb_flag(UI_CTRL_t *ctrl, uint8_t usb_flag)
-{
-    ctrl->usb_flag = usb_flag;
-}
-
-static uint8_t ui_get_usb_flag(UI_CTRL_t *ctrl)
-{
-    return ctrl->usb_flag;
 }
 
 static void ui_set_iap_flag(UI_CTRL_t *ctrl, uint8_t iap_flag)
@@ -766,22 +651,18 @@ static void ui_update(UI_CTRL_t *ctrl)
 
 static UI_CTRL_t ui_ctrl = {
     .flush_flag = 0,
-    .usb_flag = 0,
     .iap_flag = 0,
     .ota_flag = 0,
 
     .disp_init = ui_disp_init,
     .indev_init = ui_indev_init,
     .draw = ui_draw,
-    .nes_draw = ui_nes_draw,
 };
 
 static UI_API_t ui_api = {
     .init = ui_init,
     .get_flush = ui_get_flush,
     .set_flush = ui_set_flush,
-    .set_usb_flag = ui_set_usb_flag,
-    .get_usb_flag = ui_get_usb_flag,
     .set_iap_flag = ui_set_iap_flag,
     .get_iap_flag = ui_get_iap_flag,
     .set_ota_flag = ui_set_ota_flag,

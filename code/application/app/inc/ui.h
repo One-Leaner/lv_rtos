@@ -12,11 +12,8 @@ enum UI_ID
     UI_ID_VOLUME,
     UI_ID_SOUND,
     UI_ID_BRIGHTNESS,
-    UI_ID_USB,
     UI_ID_IAP,
     UI_ID_OTA,
-    UI_ID_NES_KEY,
-    UI_ID_NES_RUN,
 };
 
 typedef struct
@@ -33,8 +30,6 @@ typedef struct
     void (*init)(UI_CTRL_t *);
     uint8_t (*get_flush)(UI_CTRL_t *);
     void (*set_flush)(UI_CTRL_t *, uint8_t);
-    void (*set_usb_flag)(UI_CTRL_t *, uint8_t);
-    uint8_t (*get_usb_flag)(UI_CTRL_t *);
     void (*set_iap_flag)(UI_CTRL_t *, uint8_t);
     uint8_t (*get_iap_flag)(UI_CTRL_t *);
     void (*set_ota_flag)(UI_CTRL_t *, uint8_t);

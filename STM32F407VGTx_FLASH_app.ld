@@ -67,8 +67,7 @@ RAM (xrw)      : ORIGIN = 0x20000000, LENGTH = 128K
 CCMRAM (xrw)      : ORIGIN = 0x10000000, LENGTH = 64K
 FLASH (rx)      : ORIGIN = 0x8010000, LENGTH = 960K
 /* 外部SRAM */
-EXTSRAM_LVGL (xrw)   : ORIGIN = 0x60000000, LENGTH = 864K
-EXTSRAM_NES (xrw)    : ORIGIN = 0x600D8000, LENGTH = 160K
+EXTSRAM_LVGL (xrw)   : ORIGIN = 0x60000000, LENGTH = 1024K
 }
 
 /* Define output sections */
@@ -176,22 +175,11 @@ SECTIONS
   {
       . = ALIGN(4);
       _lv_mem_pool_start = .;
-      . += 864K;   /* 大小   注意：这里无法直接使用宏，需要手动写数字 */
+      . += 1024K;   /* 大小   注意：这里无法直接使用宏，需要手动写数字 */
       
       . = ALIGN(4);
       _lv_mem_pool_end = .;
   } >EXTSRAM_LVGL AT> FLASH
-  /* nes数据段 */
-  .nes_section (NOLOAD) :
-  {
-    . = ALIGN(4);
-    _nes_section_start = .;
-    *(.nes_section)
-    *(.nes_section*)
-    
-    . = ALIGN(4);
-    _nes_section_end = .;
-  } >EXTSRAM_NES AT> FLASH
   /******** 外部SRAM数据段 ********/
   
   /* Uninitialized data section */
@@ -232,5 +220,3 @@ SECTIONS
   }
 
 }
-
-

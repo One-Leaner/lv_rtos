@@ -25,7 +25,6 @@
 #include "spi.h"
 #include "tim.h"
 #include "usart.h"
-#include "usb_device.h"
 #include "gpio.h"
 #include "fsmc.h"
 
@@ -91,7 +90,7 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-  // 等待外设上电完成，主要是为了等待SD卡和esp8266初始化完成
+  // ????????????????????????SD????esp8266????????
   for (volatile uint32_t i = 0; i < 100000000; i++)
   {
     __NOP();

@@ -6,9 +6,9 @@ add_library(stm32cubemx INTERFACE)
 # Enable CMake support for ASM and C languages
 enable_language(C ASM)
 
-target_compile_definitions(stm32cubemx INTERFACE 
-	USE_HAL_DRIVER 
-	STM32F407xx
+target_compile_definitions(stm32cubemx INTERFACE
+    USE_HAL_DRIVER
+    STM32F407xx
     $<$<CONFIG:Debug>:DEBUG>
 )
 
@@ -16,16 +16,12 @@ target_include_directories(stm32cubemx INTERFACE
     ../../Core/Inc
     ../../FATFS/Target
     ../../FATFS/App
-    ../../USB_DEVICE/App
-    ../../USB_DEVICE/Target
     ../../Drivers/STM32F4xx_HAL_Driver/Inc
     ../../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy
     ../../Middlewares/Third_Party/FreeRTOS/Source/include
     ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2
     ../../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F
     ../../Middlewares/Third_Party/FatFs/src
-    ../../Middlewares/ST/STM32_USB_Device_Library/Core/Inc
-    ../../Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc
     ../../Drivers/CMSIS/Device/ST/STM32F4xx/Include
     ../../Drivers/CMSIS/Include
 )
@@ -47,13 +43,6 @@ target_sources(stm32cubemx INTERFACE
     ../../FATFS/Target/sd_diskio.c
     ../../FATFS/Target/user_diskio.c
     ../../FATFS/App/fatfs.c
-    ../../USB_DEVICE/App/usb_device.c
-    ../../USB_DEVICE/App/usbd_desc.c
-    ../../USB_DEVICE/App/usbd_storage_if.c
-    ../../USB_DEVICE/Target/usbd_conf.c
-    ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c
-    ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c
-    ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c
     ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c
     ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c
     ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c
@@ -91,13 +80,6 @@ target_sources(stm32cubemx INTERFACE
     ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c
     ../../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c
     ../../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c
-    ../../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c
-    ../../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c
-    ../../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c
-    ../../Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc.c
-    ../../Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c
-    ../../Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_data.c
-    ../../Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c
     ../../Core/Src/sysmem.c
     ../../Core/Src/syscalls.c
     ../../startup_stm32f407xx.s
@@ -113,5 +95,3 @@ target_link_libraries(stm32cubemx INTERFACE
 if(CMAKE_C_STANDARD LESS 11)
     message(ERROR "Generated code requires C11 or higher")
 endif()
-
-
